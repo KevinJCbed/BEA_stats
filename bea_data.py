@@ -7,7 +7,7 @@ df_bop = (pd.read_csv("https://raw.githubusercontent.com/KevinJCbed/BEA_stats/ma
 .dropna()[['principal_trading_partners',"series",'trade']+years]
 )
 fdi_iic = pd.read_csv("https://raw.githubusercontent.com/KevinJCbed/BEA_stats/main/fdi_iic.csv")
-
+imf = pd.read_csv("https://raw.githubusercontent.com/KevinJCbed/BEA_stats/main/IMFWEOOCT2021.csv")
 
 #selection box
 # add_selectbox = st.sidebar.selectbox(
@@ -58,9 +58,16 @@ st.table(
     )
 
 
-
+# FDIC
 st.title(f"Bilateral FDI IIC, $M")
 st.dataframe(
     fdi_iic.query("countries == @add_selectbox").drop(["series","countries"],axis = 1)
     
     )
+
+# IMF Data
+st.title(f"IMF WEO")
+st.dataframe(
+    imf.query("country == @add_selectbox"))
+    )
+
