@@ -60,14 +60,14 @@ st.table(
 
 # FDIC
 st.title(f"Bilateral FDI IIC, $M")
-st.dataframe(
+st.table(
     fdi_iic.query("countries == @add_selectbox").drop(["series","countries"],axis = 1)
     
     )
 
 # IMF Data
 st.title(f"IMF WEO")
-st.dataframe(
+st.table(
     imf.query("country == @add_selectbox")
     )
 
