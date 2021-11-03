@@ -68,6 +68,6 @@ st.dataframe(
 # IMF Data
 st.title(f"IMF WEO")
 st.dataframe(
-    imf.query("country == @add_selectbox"))
+    imf.query("country == @add_selectbox")
     )
 
