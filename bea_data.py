@@ -61,6 +61,6 @@ st.table(
 
 st.title(f"Bilateral FDI IIC, $M")
 st.dataframe(
-    fdi_iic.query("countries == @add_selectbox").drop("series",axis = 1)
+    fdi_iic.query("countries == @add_selectbox").drop(["series","countries"],axis = 1)
     
     )
