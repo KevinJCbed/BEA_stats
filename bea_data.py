@@ -7,7 +7,7 @@ df_bop = (pd.read_csv("https://raw.githubusercontent.com/KevinJCbed/BEA_stats/ma
 .dropna()[['principal_trading_partners',"series",'trade']+years]
 )
 fdi_iic = pd.read_csv("https://raw.githubusercontent.com/KevinJCbed/BEA_stats/main/fdi_iic.csv")
-imf = pd.read_csv("https://raw.githubusercontent.com/KevinJCbed/BEA_stats/main/IMFWEOOCT2021.csv")
+imf = pd.read_csv("https://raw.githubusercontent.com/KevinJCbed/BEA_stats/main/IMFWEOOCT2021.csv",encoding = "ISO-8859-1")
 
 #selection box
 # add_selectbox = st.sidebar.selectbox(
