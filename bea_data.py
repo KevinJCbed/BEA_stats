@@ -17,10 +17,8 @@ fdi_iic = pd.read_csv("https://raw.githubusercontent.com/KevinJCbed/BEA_stats/ma
 
 add_selectbox = st.sidebar.selectbox(
     "Which country?",
-    fdi_iic.countries.unique().tolist()
+    df_bop.query("series == 'Services trade'")['principal_trading_partners'].unique().tolist()
 )
-
-df_bop = df_bop.query("principal_trading_partners == @add_selectbox")
 
 st.title(f"Canada - {add_selectbox} common stats")
 
@@ -56,7 +54,7 @@ st.title("BOP Trade Statistics, $M")
 df_bop.series = pd.Categorical(df_bop.series, ['Goods trade',"Services trade","Goods and Services"])
 df_bop.trade = pd.Categorical(df_bop.trade, ['Receipts',"Payments","Balances","Bilateral"])
 st.table(
-    df_bop.drop("principal_trading_partners",axis = 1)[["series",'trade']+years].sort_values(["series",'trade']).round()
+    df_bop.query("principal_trading_partners == @add_selectbox").drop("principal_trading_partners",axis = 1)[["series",'trade']+years].sort_values(["series",'trade']).round()
     )
 
 
