@@ -20,6 +20,12 @@ add_selectbox = st.sidebar.selectbox(
     df_bop.query("series == 'Services trade'")['principal_trading_partners'].unique().tolist()
 )
 
+reference_year = st.sidebar.selectbox(
+    "Select metric reference year?",
+    [x for x in range(2010,2021)],
+    index = [x for x in range(2010,2021)].index(2020)
+)
+
 st.title(f"Canada - {add_selectbox} common stats")
 
 #BOP
@@ -28,9 +34,9 @@ st.title("BOP Trade Statistics, $M")
 # Metrics
 # col1, col2, col3 = st.columns(3)
 # col1.metric(
-#     label="2020 Goods Export Value", 
-#     value= df_bop.query("trade == 'Receipts' & series == 'Goods trade'")['2020'].values[0],
-#     delta = round((df_bop.query("trade == 'Receipts' & series == 'Goods trade'")['2020'].values[0]/df_bop.query("trade == 'Receipts' & series == 'Goods trade'")['2019'].values[0]-1)*100,1)
+#     label=f"{reference_year} Goods Export Value", 
+#     value= df_bop.query("trade == 'Receipts' & series == 'Goods trade'")[str(reference_year)].values[0],
+#     delta = round((df_bop.query("trade == 'Receipts' & series == 'Goods trade'")[str(reference_year)].values[0]/df_bop.query("trade == 'Receipts' & series == 'Goods trade'")[str(reference_year-1)].values[0]-1)*100,1)
 #     )
 
 # col1.metric(
@@ -70,4 +76,3 @@ st.title(f"IMF WEO")
 st.table(
     imf.query("country == @add_selectbox")
     )
-
