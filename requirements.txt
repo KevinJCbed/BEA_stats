@@ -1,1 +1,2 @@
 countrycode == 0.2
+pandasql == 0.7.3
