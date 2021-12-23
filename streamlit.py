@@ -85,12 +85,6 @@ st.download_button(
    "text/csv",
    key='download-df1'
 )
-st.button(
-   "To Clipboard",
-   on_click = df1.to_clipboard(),
-   help = "Click to copy data to clipboard",
-   key = '1'
-)
 
 st.title(f"FDI stock: Canada - {iso_to_name(add_selection)}, $M")
 st.dataframe(df3)
@@ -100,12 +94,6 @@ st.download_button(
    "fdi.csv",
    "text/csv",
    key='download-df3'
-)
-st.button(
-   "To Clipboard",
-   on_click = df3.to_clipboard(),
-   help = "Click to copy data to clipboard",
-   key = '3'
 )
 
 st.title(f"IMF WEO Oct 2021: {iso_to_name(add_selection)}")
@@ -117,12 +105,6 @@ st.download_button(
    "text/csv",
    key='download-df4'
 )
-st.button(
-   "To Clipboard",
-   on_click = df4.to_clipboard(),
-   help = "Click to copy data to clipboard",
-   key = '4'
-)
 
 st.title(f"Top goods and services trading partners in {year_selection[1]}, $M")
 st.dataframe(df5)
@@ -133,9 +115,4 @@ st.download_button(
    "text/csv",
    key='download-df5'
 )
-st.button(
-   "To Clipboard",
-   on_click = df5.to_clipboard(),
-   help = "Click to copy data to clipboard",
-   key = '5'
-)
+
